@@ -4,6 +4,10 @@
 
 Pour le sujet de ce TP, aller à ce lien : https://github.com/DaoGod/Docker/tree/main/Sujet
 
+## Author
+Enzo Pistre
+Nicolas Seillé
+
 ## 1. Quelques commandes à tester
 
 ● **docker run hello-world**
