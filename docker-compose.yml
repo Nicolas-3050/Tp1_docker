@@ -1,0 +1,43 @@
+version: '3.8'
+
+# Création des Container
+services:
+         
+    # Création du container MySQL      
+    mysql:
+      container_name: mysql
+      image: mysql
+      environment:
+        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      networks:
+        - backend
+
+    phpmyadmin:
+      container_name: phpmyadmin
+      image: phpmyadmin/phpmyadmin
+      environment:
+        - PMA_HOST=mysql
+      depends_on:
+        - mysql
+      ports:
+        - 8000:80
+      networks:
+        - backend
+
+    app:
+      container_name: app
+      image: praqma/network-multitool
+      networks:
+        - frontend
+
+    debian:
+      container_name: debian
+      image: debian
+      networks:
+        - frontend
+      stdin_open: true
+      tty: true
+
+networks:
+  frontend:
+  backend:
