@@ -120,6 +120,10 @@ Ce qu'apporte un docker-compose est plus de simplicité et de structure. Tout d'
 
 Comparer au commande qu'il faut déjà connaitre, alors que le docker compose il y a une seule ligne de commande pour pull l'image et créer les conteneurs.
 
+Démarer les containers : docker-compose up -d
+Arrêter les containers : docker-compose stop
+Pour supprimer tous ce qui a été crééé : docker-compose down
+
 ![docker images](images/6.2.png)
 
 ![docker images](images/6.1.png)
@@ -133,11 +137,15 @@ ex: -e MYSQL_ALLOW_EMPTY_PASSWORD=yes
 ## Observation de l’isolation réseau entre 3 conteneurs
 ### a. A l’aide de docker-compose et de l’image praqma/network-multitool disponible sur le Docker Hub créer 3 services (web, app et db) et 2 réseaux (frontend et backend). Les services web et db ne devront pas pouvoir effectuer de ping de l’un vers l’autre
 
+
 ![docker images](images/9.1.png)
 
 ![docker images](images/9.2.png)
 
 J'ai créer un conteneur debian qui est dans le même réseau que celui de app pour vérifier que le ping marche bien dans son propre réseau.
+
+docker exec -it tp1_docker sh
+Commande pour ping un autre container : ping debian
 
 ![docker images](images/9.3.png)
 
